@@ -26,7 +26,7 @@ if (menuButton && menu) {
   window.matchMedia('(min-width: 721px)').addEventListener('change', closeMenu);
 }
 
-const contactForm = document.querySelector('#mesaj');
+const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
   const message = contactForm.querySelector('#contact-message');
   const count = contactForm.querySelector('#message-count');
