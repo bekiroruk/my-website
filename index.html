@@ -7,117 +7,7 @@
   <meta name="description" content="Bekir Oruk'un kişisel portföyü. Bilgisayarlı görü, yerel yapay zekâ ve yazılım projeleri.">
   <title>Bekir Oruk — Bilgisayar Mühendisi & Yapay Zekâ Geliştiricisi</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b1018'/%3E%3Cpath d='M15 16v32h18c9 0 15-4 15-10 0-5-3-8-8-9 4-1 6-4 6-7 0-5-4-6-13-6H15zm9 7h8c3 0 5 1 5 3s-2 3-5 3h-8v-6zm0 13h9c4 0 6 1 6 3s-2 3-6 3h-9v-6z' fill='%23bfff72'/%3E%3C/svg%3E">
-  <style>
-    :root{color-scheme:dark;--bg:#0b1018;--surface:#131b27;--surface2:#182232;--line:#2b3948;--text:#f5f8fb;--muted:#aebdcc;--lime:#bfff72;--blue:#83c9ff;--white:#e7f2f8}
-    *,*::before,*::after{box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-padding-top:92px}
-    body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}
-    a{color:inherit;text-decoration:none}
-    a:focus-visible{outline:2px solid var(--lime);outline-offset:5px;border-radius:3px}
-    ::selection{background:var(--lime);color:var(--bg)}
-    .container{width:min(100% - 3rem,1200px);margin-inline:auto}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    .skip{position:absolute;top:-100px;left:1rem;z-index:100;padding:.75rem 1rem;background:var(--lime);color:var(--bg)}
-    .skip:focus{top:1rem}
-    .topline{height:6px;background:linear-gradient(90deg,var(--lime) 0 26%,var(--blue) 26% 59%,#6d80fb 59% 100%)}
-    .site-header{position:sticky;top:0;z-index:20;background:rgba(11,16,24,.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
-    .nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:2rem}
-    .brand{display:inline-flex;align-items:center;gap:.8rem;font-size:.98rem;font-weight:800;letter-spacing:.015em;white-space:nowrap}
-    .brand-symbol{display:grid;place-items:center;width:36px;height:36px;border:1px solid var(--lime);border-radius:9px;color:var(--lime);font-size:.78rem;letter-spacing:-.09em}
-    .links{display:flex;align-items:center;gap:clamp(1rem,2.7vw,2.25rem);color:var(--muted);font-size:.91rem}
-    .links a:hover,.footer-nav a:hover{color:var(--lime)}
-    .nav-contact{display:inline-flex;align-items:center;gap:.8rem;border:1px solid var(--line);border-radius:100px;padding:.6rem 1rem;color:var(--text);font-size:.86rem;font-weight:650;transition:background .2s,border-color .2s}
-    .nav-contact:hover{background:var(--lime);border-color:var(--lime);color:var(--bg)}
-    main{overflow:hidden}
-    .hero{position:relative;padding:clamp(4.5rem,8vw,8.5rem) 0 clamp(4.5rem,8vw,7.5rem);background:radial-gradient(circle at 76% 26%,rgba(53,92,143,.16),transparent 34%),linear-gradient(180deg,#0d1420,var(--bg) 85%)}
-    .hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(to right,rgba(163,203,237,.035) 1px,transparent 1px);background-size:90px 90px;pointer-events:none;mask-image:linear-gradient(90deg,transparent,#000 45%,#000)}
-    .hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.72fr);align-items:center;gap:clamp(2rem,6vw,7rem)}
-    .overline{display:flex;align-items:center;gap:.75rem;margin:0 0 1.6rem;font-size:.78rem;font-weight:750;letter-spacing:.2em;text-transform:uppercase;color:var(--lime)}
-    .overline::before{content:"";display:block;width:28px;height:1px;background:currentColor}
-    h1,h2,h3,p{overflow-wrap:break-word}
-    h1{margin:0;font-size:clamp(4.25rem,8vw,8.4rem);line-height:.93;letter-spacing:-.082em;font-weight:720}
-    h1 .stroke{display:block;color:transparent;-webkit-text-stroke:1px #a6b9ca}
-    h1 .accent{display:block;color:var(--lime)}
-    .hero-lead{margin:2rem 0 0;max-width:650px;color:#d1dce6;font-size:clamp(1.15rem,1.6vw,1.4rem);line-height:1.58}
-    .hero-lead strong{color:var(--text);font-weight:650}
-    .actions{display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin-top:2.3rem}
-    .btn{min-height:52px;display:inline-flex;align-items:center;justify-content:center;gap:1.5rem;border:1px solid var(--lime);border-radius:100px;padding:.75rem 1.3rem;background:var(--lime);color:#102012;font-weight:760;font-size:.94rem;transition:transform .2s,background .2s,color .2s}
-    .btn:hover{transform:translateY(-3px);background:#d4ffa1}
-    .btn-outline{background:transparent;border-color:#506276;color:var(--text)}
-    .btn-outline:hover{background:var(--surface2);color:var(--text)}
-    .portrait-wrap{position:relative;max-width:440px;justify-self:end;width:100%}
-    .portrait-frame{position:relative;overflow:hidden;aspect-ratio:4/5.1;border-radius:180px 180px 22px 22px;background:#eef4fa;box-shadow:0 28px 90px rgba(0,0,0,.36);border:1px solid #c6d5e0}
-    .portrait-frame img{display:block;width:100%;height:100%;object-fit:cover;object-position:center top}
-    .portrait-wrap::before{content:"";position:absolute;z-index:-1;left:-17px;top:50px;right:18px;bottom:-18px;border:1px solid var(--lime);border-radius:180px 180px 22px 22px}
-    .portrait-label{position:absolute;right:-24px;bottom:35px;display:flex;align-items:center;gap:.75rem;border:1px solid #4c5e70;background:#111923;padding:.8rem 1rem;border-radius:10px;box-shadow:0 14px 30px rgba(0,0,0,.25);font-weight:700;font-size:.83rem;letter-spacing:.06em}
-    .portrait-label span{height:9px;width:9px;border-radius:50%;background:var(--lime);box-shadow:0 0 14px var(--lime)}
-    .hero-bottom{position:relative;display:flex;justify-content:space-between;gap:1rem;margin-top:5rem;padding-top:1.2rem;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}
-    .hero-bottom span:last-child{color:var(--lime)}
-    .marquee{border-block:1px solid var(--line);background:#121b25;overflow:hidden}
-    .marquee-track{display:flex;gap:2.4rem;align-items:center;justify-content:center;min-height:62px;white-space:nowrap;color:#c8d6e2;font-size:.82rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
-    .marquee-track b{color:var(--lime);font-size:1.1rem}
-    .section{padding:clamp(5rem,9vw,8rem) 0;border-bottom:1px solid var(--line)}
-    .section-title{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:2.7rem}
-    .eyebrow{color:var(--lime);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem;font-weight:770;margin:0 0 .85rem}
-    h2{font-size:clamp(2.9rem,6vw,5.9rem);font-weight:700;line-height:1.01;letter-spacing:-.07em;margin:0}
-    .section-intro{max-width:390px;color:var(--muted);margin:0 0 .25rem;font-size:1.04rem}
-    .project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.1rem}
-    .project{position:relative;display:flex;flex-direction:column;min-height:390px;overflow:hidden;border:1px solid var(--line);border-radius:18px;padding:clamp(1.5rem,3vw,2.2rem);background:var(--surface);transition:transform .24s,border-color .24s}
-    .project::before{content:"";position:absolute;right:-85px;top:-90px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(131,201,255,.14),transparent 67%);pointer-events:none}
-    .project:hover{transform:translateY(-5px);border-color:var(--blue)}
-    .project.featured{background:linear-gradient(125deg,#19273b,#182330 60%,#102117)}
-    .project.featured::before{width:620px;height:620px;right:-80px;top:-170px;background:radial-gradient(circle,rgba(191,255,114,.13),transparent 64%)}
-    .project-header,.project-footer{position:relative;display:flex;justify-content:space-between;align-items:center;gap:1rem}
-    .project-no{color:var(--lime);font-size:.77rem;font-weight:800;letter-spacing:.12em}
-    .tags{display:flex;flex-wrap:wrap;gap:.4rem}
-    .tag{border:1px solid #456071;background:rgba(13,26,41,.5);border-radius:100px;padding:.22rem .6rem;color:#c9d9e6;font-size:.72rem;font-weight:600}
-    .project-content{position:relative;margin:auto 0 0}
-    .project h3{font-size:clamp(2.1rem,3.6vw,3.9rem);line-height:1.08;letter-spacing:-.06em;margin:0 0 .85rem}
-    .project p{max-width:54ch;color:#c0cfdb;font-size:1rem;line-height:1.62;margin:0}
-    .project.featured p{max-width:56ch;font-size:1.1rem}
-    .project-footer{margin-top:2.2rem;padding-top:1.2rem;border-top:1px solid #435262;font-size:.9rem;font-weight:700}
-    .project-footer span:last-child{display:grid;place-items:center;width:32px;height:32px;border:1px solid #70839a;border-radius:50%;font-size:1.15rem;line-height:1}
-    .project:hover .project-footer span:last-child{background:var(--lime);border-color:var(--lime);color:var(--bg)}
-    .areas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
-    .area{padding:2rem;border:1px solid var(--line);border-radius:16px;background:#101823;min-height:320px}
-    .area-number{font-weight:800;font-size:.8rem;letter-spacing:.12em;color:var(--lime)}
-    .area-mark{display:block;margin:2rem 0 2.2rem;color:var(--blue);font-size:2.2rem;line-height:1}
-    .area h3{font-size:1.55rem;letter-spacing:-.04em;line-height:1.2;margin:0 0 .8rem}
-    .area p{margin:0;color:var(--muted);font-size:.99rem}
-    .spotlight{background:#d8e8f4;color:#0d1c2b;padding:clamp(4rem,8vw,7.5rem) 0}
-    .spotlight-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end}
-    .spotlight .eyebrow{color:#315b2d}
-    .spotlight h2{font-size:clamp(3rem,6vw,5.6rem)}
-    .spotlight p{font-size:1.12rem;line-height:1.65;max-width:560px;margin:0 0 1.2rem;color:#30475b}
-    .spotlight .status{display:inline-flex;gap:.65rem;align-items:center;border:1px solid #729173;border-radius:100px;padding:.45rem .8rem;color:#28542b;font-size:.83rem;font-weight:700}
-    .status::before{content:"";width:8px;height:8px;border-radius:50%;background:#438b42}
-    .tool-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:4rem}
-    .tool-intro{color:var(--muted);max-width:360px;font-size:1.06rem;margin:1.2rem 0 0}
-    .tool-group{padding:1.2rem 0 1.5rem;border-top:1px solid var(--line);display:grid;grid-template-columns:150px 1fr;gap:1.5rem}
-    .tool-group:last-child{border-bottom:1px solid var(--line)}
-    .tool-group strong{font-size:.84rem;color:var(--lime);text-transform:uppercase;letter-spacing:.12em}
-    .tool-group span{font-size:1.06rem;color:#e4edf4;line-height:1.7}
-    .about-grid{display:grid;grid-template-columns:.65fr 1.35fr;gap:4rem}
-    .about-copy{font-size:clamp(1.2rem,2vw,1.5rem);line-height:1.6;color:#d0dce7}
-    .about-copy p{margin:0 0 1.4rem}
-    .about-copy strong{color:var(--lime);font-weight:650}
-    .contact{padding:clamp(5rem,9vw,8rem) 0;background:radial-gradient(circle at 85% 70%,rgba(97,160,255,.18),transparent 38%)}
-    .contact h2{max-width:850px}
-    .contact h2 em{color:var(--lime);font-style:normal}
-    .contact-row{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-top:3rem}
-    .contact-row p{max-width:520px;color:var(--muted);margin:0;font-size:1.05rem}
-    .contact-row .btn{white-space:nowrap}
-    footer{border-top:1px solid var(--line);background:#0a0f16;color:var(--muted)}
-    .footer-main{display:flex;justify-content:space-between;gap:2rem;align-items:center;padding:2.4rem 0}
-    .footer-brand{font-size:1.1rem;color:var(--text);font-weight:800;letter-spacing:-.03em}
-    .footer-brand span{color:var(--lime)}
-    .footer-nav{display:flex;flex-wrap:wrap;gap:1.4rem;font-size:.86rem}
-    .footer-bottom{display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--line);padding:1.2rem 0;font-size:.78rem}
-    @media(max-width:960px){.links{gap:1rem}.hero-grid{gap:2.5rem}.portrait-label{right:0}.areas{grid-template-columns:1fr 1fr}.area:last-child{grid-column:span 2}.spotlight-inner{gap:2rem}.tool-layout{gap:2rem}}
-    @media(max-width:720px){.container{width:min(100% - 2.25rem,1200px)}.nav{height:67px}.brand{font-size:.83rem}.brand-symbol{width:31px;height:31px}.links{display:none}.nav-contact{padding:.5rem .8rem;font-size:.78rem}.hero{padding:4.7rem 0 3rem}.hero-grid{grid-template-columns:1fr;gap:4rem}h1{font-size:clamp(4.1rem,15vw,6.3rem)}.portrait-wrap{max-width:390px;justify-self:center}.portrait-label{right:-4px}.hero-bottom{margin-top:4rem}.hero-bottom span:last-child{display:none}.marquee-track{gap:1.1rem;justify-content:flex-start;overflow:auto;padding-inline:1.1rem;scrollbar-width:none}.marquee-track::-webkit-scrollbar{display:none}.section-title,.spotlight-inner,.tool-layout,.about-grid,.contact-row{display:block}.section-intro{margin-top:1.4rem}.project-grid,.areas{grid-template-columns:1fr}.project.featured,.area:last-child{grid-column:auto}.project{min-height:365px}.spotlight p{margin-top:1.8rem}.tool-layout>div:first-child{margin-bottom:2.4rem}.about-copy{margin-top:2rem}.contact-row .btn{margin-top:2rem}.footer-main{align-items:flex-start;flex-direction:column}}
-    @media(max-width:460px){.project{padding:1.35rem}.tags{max-width:70%;justify-content:flex-end}.tool-group{grid-template-columns:1fr;gap:.35rem}.footer-bottom{flex-direction:column}.portrait-label{font-size:.7rem;right:-5px}.hero-lead{font-size:1.12rem}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.project,.btn,.nav-contact{transition:none}}
-  </style>
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
   <a class="skip" href="#icerik">İçeriğe geç</a>
@@ -125,7 +15,8 @@
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="#baslangic" aria-label="Bekir Oruk, sayfa başı"><span class="brand-symbol" aria-hidden="true">BO</span> BEKİR ORUK</a>
-      <nav class="links" aria-label="Ana menü">
+      <button class="menu-toggle" type="button" aria-label="Menüyü aç" aria-controls="main-nav" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="links" id="main-nav" aria-label="Ana menü">
         <a href="#projeler">Projeler</a><a href="#uzmanlik">Çalışma alanları</a><a href="#hakkimda">Hakkımda</a>
       </nav>
       <a class="nav-contact" href="#iletisim">İletişime geç <span aria-hidden="true">↗</span></a>
@@ -144,7 +35,7 @@
           </div>
         </div>
         <div class="portrait-wrap">
-          <div class="portrait-frame"><img src="bekir-oruk.jpg" alt="Bekir Oruk'un portre fotoğrafı" width="378" height="472" fetchpriority="high"></div>
+          <div class="portrait-frame"><img src="assets/images/bekir-oruk.jpg" alt="Bekir Oruk'un portre fotoğrafı" width="378" height="472" fetchpriority="high"></div>
           <div class="portrait-label"><span aria-hidden="true"></span> ÜRET · DENE · GELİŞTİR</div>
         </div>
       </div>
@@ -222,5 +113,6 @@
     <div class="container footer-main"><a href="#baslangic" class="footer-brand">BEKİR <span>ORUK.</span></a><nav class="footer-nav" aria-label="Alt menü"><a href="#projeler">Projeler</a><a href="#uzmanlik">Çalışma alanları</a><a href="#hakkimda">Hakkımda</a><a href="https://github.com/bekiroruk" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav></div>
     <div class="container footer-bottom"><span>© 2026 Bekir Oruk</span><span>Merakla üretilen projeler.</span></div>
   </footer>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>

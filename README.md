@@ -1,32 +1,36 @@
-# Bekir Oruk — Personal Website
+# Bekir Oruk — Kişisel Web Sitesi
 
-Bekir Oruk'un kişisel portföy sitesi. Bilgisayarlı görü, yerel yapay zekâ ve yazılım projelerini tek sayfada sunar.
+Bilgisayarlı görü, yerel yapay zekâ ve yazılım projelerimi anlattığım kişisel portföy sitesi.
 
 **Canlı site:** https://bekir-oruk.bekiroruk.chatgpt.site
 
-## İçerik
+## Proje yapısı
 
-- Kişisel tanıtım ve portre
-- GitHub'daki seçili projeler
-- Çalışma alanları ve teknoloji araçları
-- Akıllı otopark doluluk analizi üzerine devam eden tez çalışması
+```text
+.
+├── index.html                 # Sayfa içeriği ve semantik yapı
+├── assets/
+│   ├── css/styles.css        # Tasarım, animasyon ve duyarlı düzen
+│   ├── js/main.js            # Mobil menü etkileşimi
+│   └── images/bekir-oruk.jpg # Portre fotoğrafı
+└── README.md
+```
 
-## Çalıştırma
+## Yerelde çalıştırma
 
-Bağımlılık veya derleme adımı yoktur. `index.html` dosyasını tarayıcıda açabilirsiniz. Yerel sunucu için:
+Kurulum veya derleme gerekmez. Depo klasöründe aşağıdaki komutu çalıştırın:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Ardından `http://localhost:8000` adresini açın.
+Ardından `http://localhost:8000` adresini açın. Dilerseniz `index.html` dosyasını doğrudan tarayıcıda da açabilirsiniz.
 
-## Dosyalar
+## Düzenleme
 
-```text
-index.html       # İçerik ve duyarlı tasarım
-bekir-oruk.jpg   # Portre fotoğrafı
-README.md        # Proje bilgileri
-```
+- Metinler ve proje bağlantıları: `index.html`
+- Renkler, tipografi ve mobil görünüm: `assets/css/styles.css`
+- Mobil menü davranışı: `assets/js/main.js`
+- Portre: `assets/images/bekir-oruk.jpg`
 
-Site GitHub Pages ile de yayımlanabilir: depo ayarlarında Pages kaynağı olarak varsayılan dalın kök dizinini seçin. Bu depo ve Sites üzerindeki canlı sürüm birbirinden ayrı tutulur; birinde yapılan değişiklik diğerine kendiliğinden aktarılmaz.
+Site statik HTML, CSS ve JavaScript ile geliştirilmiştir. Harici paket veya derleme aracı kullanılmaz. GitHub deposu ve Sites üzerindeki canlı yayın ayrı kaynaklardır; birindeki değişiklik diğerine otomatik geçmez.
