@@ -1,36 +1,23 @@
 # Bekir Oruk — Kişisel Web Sitesi
 
-Bilgisayarlı görü, yerel yapay zekâ ve yazılım projelerimi anlattığım kişisel portföy sitesi.
+[Canlı site](https://bekir-oruk.bekiroruk.chatgpt.site/) · [English version](https://bekir-oruk.bekiroruk.chatgpt.site/en/)
 
-**Canlı site:** https://bekir-oruk.bekiroruk.chatgpt.site
+Bilgisayarlı görü, yerel yapay zekâ ve yazılım çalışmalarını anlatan iki dilli, statik portföy.
 
-## Proje yapısı
+## Dosyalar
 
-```text
-.
-├── index.html                 # Sayfa içeriği ve semantik yapı
-├── assets/
-│   ├── css/styles.css        # Tasarım, animasyon ve duyarlı düzen
-│   ├── js/main.js            # Mobil menü etkileşimi
-│   └── images/bekir-oruk.jpg # Portre fotoğrafı
-└── README.md
-```
+- `index.html` — Türkçe sayfa
+- `en/index.html` — İngilizce sayfa
+- `assets/css/styles.css` — tasarım ve mobil düzen
+- `assets/js/main.js` — iki dilli iletişim formu geri bildirimleri
+- `assets/images/bekir-oruk.jpg` — portre
+- `assets/docs/Bekir_Oruk_CV.pdf` — herkese açık iki dilli CV
+- `assets/icons/` — teknoloji logoları
 
-## Yerelde çalıştırma
+Yerelde görüntülemek için depo kökünde `python3 -m http.server 8000` çalıştırın.
 
-Kurulum veya derleme gerekmez. Depo klasöründe aşağıdaki komutu çalıştırın:
+## Logo kaynakları
 
-```bash
-python3 -m http.server 8000
-```
+Teknoloji SVG'leri [Simple Icons](https://simpleicons.org/) koleksiyonundandır. Git logosu [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) lisanslıdır; logo atfı SVG dosyasının içinde de bulunur. Diğer markaların hakları ilgili sahiplerine aittir.
 
-Ardından `http://localhost:8000` adresini açın. Dilerseniz `index.html` dosyasını doğrudan tarayıcıda da açabilirsiniz.
-
-## Düzenleme
-
-- Metinler ve proje bağlantıları: `index.html`
-- Renkler, tipografi ve mobil görünüm: `assets/css/styles.css`
-- Mobil menü davranışı: `assets/js/main.js`
-- Portre: `assets/images/bekir-oruk.jpg`
-
-Site statik HTML, CSS ve JavaScript ile geliştirilmiştir. Harici paket veya derleme aracı kullanılmaz. GitHub deposu ve Sites üzerindeki canlı yayın ayrı kaynaklardır; birindeki değişiklik diğerine otomatik geçmez.
+İletişim formu FormSubmit üzerinden e-postaya iletim için yapılandırılmıştır. İlk kullanımda adres doğrulaması gerekebilir.
