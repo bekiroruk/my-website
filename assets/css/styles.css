@@ -22,7 +22,6 @@
 /* Timeline dates share a right edge regardless of title length */
 .timeline-head{display:grid;grid-template-columns:minmax(0,1fr) 126px;align-items:start}
 .timeline time{justify-self:end;text-align:right;white-space:nowrap}
-.timeline-location{margin:.05rem 0 0;color:var(--soft);font-size:.8rem}
 
 /* Work in progress sits below the published projects */
 .subheading{font-size:1.03rem;margin:2.6rem 0 .9rem;letter-spacing:-.015em}
