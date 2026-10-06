@@ -18,22 +18,25 @@
 .tech-grid{gap:.5rem}
 .tech{aspect-ratio:auto;min-height:58px;padding:.4rem .3rem;gap:.3rem}
 .tech img{width:26px;height:26px;display:block}
-/* Spotlight follows the pointer; sheen plays once on hover. */
-.tech{position:relative;isolation:isolate;overflow:hidden;--light-x:50%;--light-y:50%;transition:border-color .25s,background-color .25s,box-shadow .25s}
+/* Draw the frame once, then softly pulse the icon light. */
+@property --tech-trace{syntax:"<angle>";initial-value:0deg;inherits:false}
+.tech{position:relative;isolation:isolate;overflow:hidden;transition:border-color .25s,background-color .25s,box-shadow .25s}
 .tech img,.tech>span{position:relative;z-index:1}
 .tech img{transition:filter .25s}
 .tech>span{font-size:.68rem;white-space:nowrap;transition:color .25s,text-shadow .25s}
-.tech::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;background:radial-gradient(circle 65px at var(--light-x) var(--light-y),#67e8f938,transparent 75%),radial-gradient(circle 95px at var(--light-x) var(--light-y),#a78bfa18,transparent 80%);transition:opacity .25s}
-.tech::after{content:"";position:absolute;top:-25%;bottom:-25%;left:0;width:45%;pointer-events:none;opacity:0;background:linear-gradient(90deg,transparent,#e0f2fe30,transparent);transform:translateX(-200%) skewX(-18deg)}
+.tech::before{content:"";position:absolute;inset:0;padding:1.5px;border-radius:inherit;pointer-events:none;opacity:0;--tech-trace:0deg;background:conic-gradient(from 0deg,#8ed6eb 0deg var(--tech-trace),transparent var(--tech-trace) 360deg);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;transition:opacity .2s}
+.tech::after{content:"";position:absolute;top:1px;left:50%;margin-left:-24px;width:48px;height:42px;pointer-events:none;opacity:0;background:radial-gradient(ellipse,#a78bfa32,transparent 70%)}
 @media(hover:hover) and (pointer:fine){
-.tech:hover{border-color:#88c9e47a;background:#282b32;box-shadow:inset 0 0 12px #67e8f910}
-.tech:hover::before{opacity:1}
-.tech:hover::after{animation:tech-sheen .8s ease-out}
-.tech:hover img{filter:drop-shadow(0 0 5px #8dd8ef66)}
-.tech:hover>span{color:#f0f8ff;text-shadow:0 0 8px #8dd8ef55}
+.tech:hover{border-color:transparent;background:#292b32;box-shadow:inset 0 0 10px #a78bfa0d}
+.tech:hover::before{opacity:1;animation:tech-trace .8s ease-out both}
+.tech:hover::after{animation:tech-halo 1.8s ease-in-out infinite}
+.tech:hover img{animation:tech-pulse 1.8s ease-in-out infinite}
+.tech:hover>span{color:#f0f8ff;text-shadow:0 0 6px #8dd8ef40}
 }
-@keyframes tech-sheen{0%{opacity:0;transform:translateX(-200%) skewX(-18deg)}20%{opacity:1}80%{opacity:1}100%{opacity:0;transform:translateX(350%) skewX(-18deg)}}
-@media(prefers-reduced-motion:reduce){.tech,.tech img,.tech>span,.tech::before{transition:none}.tech:hover::after{animation:none}}
+@keyframes tech-trace{from{--tech-trace:0deg}to{--tech-trace:360deg}}
+@keyframes tech-pulse{0%,100%{filter:drop-shadow(0 0 2px #8dd8ef33)}50%{filter:drop-shadow(0 0 6px #b8a4efaa)}}
+@keyframes tech-halo{0%,100%{opacity:.25}50%{opacity:.8}}
+@media(prefers-reduced-motion:reduce){.tech,.tech img,.tech>span,.tech::before{transition:none}.tech:hover img,.tech:hover::before,.tech:hover::after{animation:none}.tech:hover::before{--tech-trace:360deg}.tech:hover::after{opacity:.35}}
 
 /* Timeline dates share a right edge regardless of title length */
 .timeline-head{display:grid;grid-template-columns:minmax(0,1fr) 126px;align-items:start}
