@@ -21,9 +21,11 @@
 .tech>span{font-size:.68rem;white-space:nowrap;transition:transform .22s ease,color .22s ease}
 .tech{position:relative;transition:transform .22s ease,border-color .22s ease,border-radius .22s ease,background-color .22s ease,box-shadow .22s ease}
 .tech img{transition:transform .22s ease}
-@media(hover:hover) and (pointer:fine){.tech:hover{z-index:1;transform:translateY(-3px) scale(1.045);border-color:#7793a7;border-radius:14px;background:#2b2d31;box-shadow:0 9px 24px rgba(0,0,0,.25),0 0 0 1px rgba(123,172,204,.15)}.tech:hover img{animation:tech-float .9s ease-in-out infinite}.tech:hover>span{transform:translateY(-1px);color:#fff}}
-@keyframes tech-float{0%,100%{transform:translateY(0) rotate(-4deg) scale(1.08)}50%{transform:translateY(-4px) rotate(4deg) scale(1.08)}}
-@media(prefers-reduced-motion:reduce){.tech,.tech img,.tech>span{transition:none}.tech:hover,.tech:hover img,.tech:hover>span{transform:none;animation:none}}
+@media(hover:hover) and (pointer:fine){.tech:hover{z-index:1;transform:translateY(-3px) scale(1.045);border-color:#7793a7;border-radius:14px;background:#2b2d31;box-shadow:0 9px 24px rgba(0,0,0,.25),0 0 0 1px rgba(123,172,204,.15)}.tech:hover img{animation:tech-pop .6s cubic-bezier(.2,.7,.3,1) both}.tech:nth-child(3n+2):hover img{animation-name:tech-turn}.tech:nth-child(3n):hover img{animation-name:tech-tilt}.tech:hover>span{transform:translateY(-1px);color:#fff}}
+@keyframes tech-pop{0%,100%{transform:translateY(0) scale(1)}40%{transform:translateY(-6px) scale(1.12)}70%{transform:translateY(1px) scale(.97)}}
+@keyframes tech-turn{0%{transform:perspective(160px) rotateY(0)}100%{transform:perspective(160px) rotateY(360deg)}}
+@keyframes tech-tilt{0%,100%{transform:rotate(0) scale(1)}30%{transform:rotate(-12deg) scale(1.1)}65%{transform:rotate(8deg) scale(1.1)}}
+@media(prefers-reduced-motion:reduce){.tech,.tech img,.tech>span{transition:none}.tech:hover,.tech:nth-child(n):hover img,.tech:hover>span{transform:none;animation:none}}
 
 /* Timeline dates share a right edge regardless of title length */
 .timeline-head{display:grid;grid-template-columns:minmax(0,1fr) 126px;align-items:start}
