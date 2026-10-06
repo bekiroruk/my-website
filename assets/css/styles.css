@@ -20,8 +20,26 @@
 .tech img{width:26px;height:26px;display:block}
 /* Soft color bloom with a single gentle icon lift. */
 .tech{position:relative;isolation:isolate;overflow:hidden;--tech-a:#60a5fa;--tech-b:#a78bfa;transition:border-color .35s,background .35s,box-shadow .35s}
-.tech:nth-child(3n+2){--tech-a:#34d399;--tech-b:#22d3ee}
-.tech:nth-child(3n){--tech-a:#fb7185;--tech-b:#fbbf24}
+.tech[title="Python"]{--tech-a:#3776AB;--tech-b:#3776AB}
+.tech[title="OpenCV"]{--tech-a:#5C3EE8;--tech-b:#5C3EE8}
+.tech[title="Ollama"]{--tech-a:#E6E6E6;--tech-b:#E6E6E6}
+.tech[title="FastAPI"]{--tech-a:#009688;--tech-b:#009688}
+.tech[title="Qdrant"]{--tech-a:#DC244C;--tech-b:#DC244C}
+.tech[title="SQL Server"]{--tech-a:#ee352c;--tech-b:#a91d22}
+.tech[title="Power BI"]{--tech-a:#F6D751;--tech-b:#E6AD10}
+.tech[title="MATLAB"]{--tech-a:#fa8042;--tech-b:#29d}
+.tech[title="PostgreSQL"]{--tech-a:#4169E1;--tech-b:#4169E1}
+.tech[title="Docker"]{--tech-a:#2496ED;--tech-b:#2496ED}
+.tech[title="Qt"]{--tech-a:#41CD52;--tech-b:#41CD52}
+.tech[title="C++"]{--tech-a:#00599C;--tech-b:#00599C}
+.tech[title="Flutter"]{--tech-a:#02569B;--tech-b:#02569B}
+.tech[title=".NET"]{--tech-a:#512BD4;--tech-b:#512BD4}
+.tech[title="CMake"]{--tech-a:#249847;--tech-b:#064F8C}
+.tech[title="C#"]{--tech-a:#9B4F96;--tech-b:#68217A}
+.tech[title="SQLite"]{--tech-a:#0b7fcc;--tech-b:#95d7f4}
+.tech[title="YOLO"]{--tech-a:#09DBF0;--tech-b:#0B23A9}
+.tech[title="Linux"]{--tech-a:#FFCC02;--tech-b:#FFD133}
+.tech[title="Git"]{--tech-a:#F03C2E;--tech-b:#F03C2E}
 .tech img,.tech>span{position:relative;z-index:1}
 .tech>span{font-size:.68rem;white-space:nowrap;transition:color .3s}
 .tech::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 70%,color-mix(in srgb,var(--tech-a) 24%,transparent),transparent 75%);opacity:0;transition:opacity .4s}
