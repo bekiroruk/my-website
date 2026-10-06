@@ -19,24 +19,22 @@
 .tech{aspect-ratio:auto;min-height:58px;padding:.4rem .3rem;gap:.3rem}
 .tech img{width:26px;height:26px;display:block}
 @property --tech-orbit{syntax:"<angle>";initial-value:0deg;inherits:false}
-.tech{position:relative;isolation:isolate;--tech-orbit:0deg;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s,border-radius .3s,background-color .3s,box-shadow .3s}
+.tech{position:relative;isolation:isolate;overflow:hidden;--tech-orbit:0deg;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s,border-radius .3s,background-color .3s,box-shadow .3s}
 .tech img,.tech>span{position:relative;z-index:1}
 .tech img{transition:transform .3s,filter .3s}
 .tech>span{font-size:.68rem;white-space:nowrap;transition:transform .3s,color .3s,text-shadow .3s}
-.tech::before{content:"";position:absolute;inset:-2px;padding:2px;border-radius:inherit;pointer-events:none;opacity:0;background:conic-gradient(from var(--tech-orbit),transparent 0deg,#67e8f9 70deg,#a78bfa 145deg,#f0abfc 220deg,transparent 300deg);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;transition:opacity .3s}
-.tech::after{content:"";position:absolute;inset:-9px;pointer-events:none;opacity:0;background:radial-gradient(circle at 12% 20%,#a5f3fc 0 1px,transparent 2px),radial-gradient(circle at 86% 15%,#e9d5ff 0 1.5px,transparent 2.5px),radial-gradient(circle at 90% 78%,#f9a8d4 0 1px,transparent 2px),radial-gradient(circle at 9% 85%,#c4b5fd 0 1.5px,transparent 2.5px);filter:drop-shadow(0 0 3px #a78bfa);transition:opacity .3s}
+.tech::before{content:"";position:absolute;inset:0;padding:1.5px;border-radius:inherit;pointer-events:none;opacity:0;background:conic-gradient(from var(--tech-orbit),transparent 0deg,#67e8f9 70deg,#a78bfa 145deg,#f0abfc 220deg,transparent 300deg);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;transition:opacity .3s}
+.tech::after{content:"";position:absolute;inset:4px;pointer-events:none;opacity:0;background:radial-gradient(circle at 12% 20%,#a5f3fc 0 1px,transparent 2px),radial-gradient(circle at 86% 15%,#e9d5ff 0 1.5px,transparent 2.5px),radial-gradient(circle at 90% 78%,#f9a8d4 0 1px,transparent 2px),radial-gradient(circle at 9% 85%,#c4b5fd 0 1.5px,transparent 2.5px);filter:drop-shadow(0 0 3px #a78bfa);transition:opacity .3s}
 @media(hover:hover) and (pointer:fine){
-.tech:hover{z-index:3;transform:perspective(400px) translateY(-5px) rotateX(8deg) rotateY(-7deg) scale(1.07);border-color:transparent;border-radius:14px;background:#252735;box-shadow:0 14px 28px #0006,0 0 20px #8b5cf633,inset 0 0 18px #67e8f912}
-.tech:nth-child(even):hover{transform:perspective(400px) translateY(-5px) rotateX(8deg) rotateY(7deg) scale(1.07)}
+.tech:hover{z-index:3;transform:translateY(-1px);border-color:transparent;border-radius:14px;background:#252735;box-shadow:0 4px 10px #0003,inset 0 0 14px #67e8f91a}
 .tech:hover::before{opacity:1;animation:tech-orbit 2s linear infinite}
 .tech:hover::after{opacity:1;animation:tech-sparkles 1.8s ease-in-out infinite}
-.tech:hover img{filter:drop-shadow(0 0 7px #a78bfa88);animation:tech-hologram .8s cubic-bezier(.2,.7,.3,1) both,tech-levitate 1.8s .8s ease-in-out infinite}
-.tech:hover>span{transform:translateY(2px);color:#f0eaff;text-shadow:0 0 9px #a78bfa99}
+.tech:hover img{filter:drop-shadow(0 0 7px #a78bfa88);animation:tech-levitate 2s ease-in-out infinite}
+.tech:hover>span{transform:none;color:#f0eaff;text-shadow:0 0 9px #a78bfa99}
 }
 @keyframes tech-orbit{to{--tech-orbit:360deg}}
-@keyframes tech-hologram{0%{transform:perspective(140px) rotateY(0) scale(1)}50%{transform:perspective(140px) translateY(-6px) rotateY(180deg) scale(1.23)}100%{transform:perspective(140px) translateY(-3px) rotateY(360deg) scale(1.14)}}
-@keyframes tech-levitate{0%,100%{transform:translateY(-3px) scale(1.14)}50%{transform:translateY(-6px) scale(1.17)}}
-@keyframes tech-sparkles{0%,100%{transform:scale(.93) rotate(-3deg);opacity:.45}50%{transform:scale(1.06) rotate(3deg);opacity:1}}
+@keyframes tech-levitate{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+@keyframes tech-sparkles{0%,100%{opacity:.35}50%{opacity:.8}}
 @media(prefers-reduced-motion:reduce){.tech,.tech img,.tech>span,.tech::before,.tech::after{transition:none}.tech:nth-child(n):hover,.tech:nth-child(n):hover img,.tech:hover>span,.tech:hover::before,.tech:hover::after{transform:none;animation:none}}
 
 /* Timeline dates share a right edge regardless of title length */
