@@ -15,8 +15,9 @@
 .quick-links{padding-top:.1rem}
 
 /* Technology logos shipped with the page */
-.tech{aspect-ratio:1;gap:.38rem}
-.tech img{width:34px;height:34px;display:block}
+.tech-grid{gap:.5rem}
+.tech{aspect-ratio:auto;min-height:64px;padding:.55rem .3rem;gap:.3rem}
+.tech img{width:30px;height:30px;display:block}
 .tech>span{font-size:.68rem;white-space:nowrap}
 .tech{position:relative;transition:transform .22s ease,border-color .22s ease,border-radius .22s ease,background-color .22s ease,box-shadow .22s ease}
 .tech img{transition:transform .22s ease}
