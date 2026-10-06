@@ -43,33 +43,3 @@ if (contactForm) {
     }
   });
 }
-
-
-// Keep technology highlights inside each tile without changing its size.
-{
-  const hoverPointer = window.matchMedia('(hover: hover) and (pointer: fine)');
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  document.querySelectorAll('.tech').forEach((tile) => {
-    let frame = null;
-    let x = 0;
-    let y = 0;
-    tile.addEventListener('pointermove', (event) => {
-      if (!hoverPointer.matches || reducedMotion.matches || event.pointerType === 'touch') return;
-      const rect = tile.getBoundingClientRect();
-      x = event.clientX - rect.left;
-      y = event.clientY - rect.top;
-      if (frame !== null) return;
-      frame = requestAnimationFrame(() => {
-        tile.style.setProperty('--light-x', `${x}px`);
-        tile.style.setProperty('--light-y', `${y}px`);
-        frame = null;
-      });
-    });
-    tile.addEventListener('pointerleave', () => {
-      if (frame !== null) cancelAnimationFrame(frame);
-      frame = null;
-      tile.style.removeProperty('--light-x');
-      tile.style.removeProperty('--light-y');
-    });
-  });
-}
