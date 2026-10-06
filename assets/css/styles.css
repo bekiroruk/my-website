@@ -18,23 +18,22 @@
 .tech-grid{gap:.5rem}
 .tech{aspect-ratio:auto;min-height:58px;padding:.4rem .3rem;gap:.3rem}
 .tech img{width:26px;height:26px;display:block}
-/* Colorful corner lines converge; each tile keeps its original size. */
-.tech{position:relative;isolation:isolate;overflow:hidden;--tech-a:#60a5fa;--tech-b:#a78bfa;--tech-c:#f472b6;transition:border-color .25s,background-color .25s,box-shadow .25s}
-.tech:nth-child(3n+2){--tech-a:#34d399;--tech-b:#22d3ee;--tech-c:#818cf8}
-.tech:nth-child(3n){--tech-a:#fbbf24;--tech-b:#fb7185;--tech-c:#c084fc}
+/* Soft color bloom with a single gentle icon lift. */
+.tech{position:relative;isolation:isolate;overflow:hidden;--tech-a:#60a5fa;--tech-b:#a78bfa;transition:border-color .35s,background .35s,box-shadow .35s}
+.tech:nth-child(3n+2){--tech-a:#34d399;--tech-b:#22d3ee}
+.tech:nth-child(3n){--tech-a:#fb7185;--tech-b:#fbbf24}
 .tech img,.tech>span{position:relative;z-index:1}
-.tech>span{font-size:.68rem;white-space:nowrap;transition:color .25s}
-.tech::before,.tech::after{content:"";position:absolute;inset:2px;border-radius:7px;pointer-events:none;background-repeat:no-repeat;opacity:0;transition:background-size .5s cubic-bezier(.2,.7,.3,1),opacity .2s}
-.tech::before{background-image:linear-gradient(90deg,var(--tech-a),var(--tech-b),var(--tech-c)),linear-gradient(270deg,var(--tech-a),var(--tech-b),var(--tech-c)),linear-gradient(90deg,var(--tech-c),var(--tech-b),var(--tech-a)),linear-gradient(270deg,var(--tech-c),var(--tech-b),var(--tech-a));background-position:left top,right top,left bottom,right bottom;background-size:7px 2px,7px 2px,7px 2px,7px 2px}
-.tech::after{background-image:linear-gradient(180deg,var(--tech-a),var(--tech-b),var(--tech-c)),linear-gradient(0deg,var(--tech-c),var(--tech-b),var(--tech-a)),linear-gradient(180deg,var(--tech-a),var(--tech-b),var(--tech-c)),linear-gradient(0deg,var(--tech-c),var(--tech-b),var(--tech-a));background-position:left top,left bottom,right top,right bottom;background-size:2px 7px,2px 7px,2px 7px,2px 7px}
+.tech>span{font-size:.68rem;white-space:nowrap;transition:color .3s}
+.tech::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 70%,color-mix(in srgb,var(--tech-a) 24%,transparent),transparent 75%);opacity:0;transition:opacity .4s}
+.tech::after{content:none}
 @media(hover:hover) and (pointer:fine){
-.tech:hover{border-color:color-mix(in srgb,var(--tech-b) 45%,#262629);background:linear-gradient(135deg,color-mix(in srgb,var(--tech-a) 13%,#262629),color-mix(in srgb,var(--tech-c) 13%,#262629));box-shadow:inset 0 0 12px color-mix(in srgb,var(--tech-b) 14%,transparent)}
-.tech:hover::before{opacity:1;background-size:50% 2px,50% 2px,50% 2px,50% 2px;animation:tech-colors 3s ease-in-out infinite}
-.tech:hover::after{opacity:1;background-size:2px 50%,2px 50%,2px 50%,2px 50%;animation:tech-colors 3s ease-in-out infinite}
+.tech:hover{border-color:color-mix(in srgb,var(--tech-b) 65%,#262629);box-shadow:inset 0 0 14px color-mix(in srgb,var(--tech-a) 10%,transparent)}
+.tech:hover::before{opacity:1}
+.tech:hover img{animation:tech-lift .65s cubic-bezier(.22,.8,.3,1) both}
 .tech:hover>span{color:#fff}
 }
-@keyframes tech-colors{0%,100%{filter:hue-rotate(0deg)}50%{filter:hue-rotate(35deg)}}
-@media(prefers-reduced-motion:reduce){.tech,.tech>span,.tech::before,.tech::after{transition:none}.tech:hover::before,.tech:hover::after{animation:none}}
+@keyframes tech-lift{0%{transform:translateY(0)}45%{transform:translateY(-4px)}75%{transform:translateY(-1px)}100%{transform:translateY(-2px)}}
+@media(prefers-reduced-motion:reduce){.tech,.tech>span,.tech::before{transition:none}.tech:hover img{animation:none}}
 
 /* Timeline dates share a right edge regardless of title length */
 .timeline-head{display:grid;grid-template-columns:minmax(0,1fr) 126px;align-items:start}
