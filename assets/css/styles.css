@@ -18,25 +18,24 @@
 .tech-grid{gap:.5rem}
 .tech{aspect-ratio:auto;min-height:58px;padding:.4rem .3rem;gap:.3rem}
 .tech img{width:26px;height:26px;display:block}
-/* Draw the frame once, then softly pulse the icon light. */
-@property --tech-trace{syntax:"<angle>";initial-value:0deg;inherits:false}
-.tech{position:relative;isolation:isolate;overflow:hidden;transition:border-color .25s,background-color .25s,box-shadow .25s}
+/* A brief constellation twinkles within the tile; the icon stays still. */
+.tech{position:relative;isolation:isolate;overflow:hidden;transition:border-color .3s,background-color .3s,box-shadow .3s}
 .tech img,.tech>span{position:relative;z-index:1}
-.tech img{transition:filter .25s}
-.tech>span{font-size:.68rem;white-space:nowrap;transition:color .25s,text-shadow .25s}
-.tech::before{content:"";position:absolute;inset:0;padding:1.5px;border-radius:inherit;pointer-events:none;opacity:0;--tech-trace:0deg;background:conic-gradient(from 0deg,#8ed6eb 0deg var(--tech-trace),transparent var(--tech-trace) 360deg);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;transition:opacity .2s}
-.tech::after{content:"";position:absolute;top:1px;left:50%;margin-left:-24px;width:48px;height:42px;pointer-events:none;opacity:0;background:radial-gradient(ellipse,#a78bfa32,transparent 70%)}
+.tech img{transition:filter .3s}
+.tech>span{font-size:.68rem;white-space:nowrap;transition:color .3s}
+.tech::before,.tech::after{content:"";position:absolute;inset:5px;pointer-events:none;opacity:0;background-repeat:no-repeat}
+.tech::before{background:radial-gradient(circle at 15% 18%,#a5f3fc 0 1px,transparent 1.8px),radial-gradient(circle at 82% 24%,#f0abfc 0 1.2px,transparent 2px),radial-gradient(circle at 22% 68%,#c4b5fd 0 1px,transparent 1.8px),radial-gradient(circle at 88% 72%,#a5f3fc 0 1px,transparent 1.8px);filter:drop-shadow(0 0 2px #a5f3fc)}
+.tech::after{background:linear-gradient(#e9d5ff,#e9d5ff) 80% 16%/1px 7px,linear-gradient(#e9d5ff,#e9d5ff) 80% 16%/7px 1px,linear-gradient(#a5f3fc,#a5f3fc) 12% 50%/1px 5px,linear-gradient(#a5f3fc,#a5f3fc) 12% 50%/5px 1px;filter:drop-shadow(0 0 3px #b3b6ff)}
 @media(hover:hover) and (pointer:fine){
-.tech:hover{border-color:transparent;background:#292b32;box-shadow:inset 0 0 10px #a78bfa0d}
-.tech:hover::before{opacity:1;animation:tech-trace .8s ease-out both}
-.tech:hover::after{animation:tech-halo 1.8s ease-in-out infinite}
-.tech:hover img{animation:tech-pulse 1.8s ease-in-out infinite}
-.tech:hover>span{color:#f0f8ff;text-shadow:0 0 6px #8dd8ef40}
+.tech:hover{border-color:#a78bfa77;background:#2d2938;box-shadow:inset 0 0 16px #a78bfa12}
+.tech:hover::before{animation:tech-dust 1.5s ease-out both}
+.tech:hover::after{animation:tech-twinkle 1.2s .15s ease-out both}
+.tech:hover img{filter:drop-shadow(0 0 4px #c4b5fd66)}
+.tech:hover>span{color:#f1eaff}
 }
-@keyframes tech-trace{from{--tech-trace:0deg}to{--tech-trace:360deg}}
-@keyframes tech-pulse{0%,100%{filter:drop-shadow(0 0 2px #8dd8ef33)}50%{filter:drop-shadow(0 0 6px #b8a4efaa)}}
-@keyframes tech-halo{0%,100%{opacity:.25}50%{opacity:.8}}
-@media(prefers-reduced-motion:reduce){.tech,.tech img,.tech>span,.tech::before{transition:none}.tech:hover img,.tech:hover::before,.tech:hover::after{animation:none}.tech:hover::before{--tech-trace:360deg}.tech:hover::after{opacity:.35}}
+@keyframes tech-dust{0%{opacity:0;transform:translateY(3px)}25%{opacity:.85}65%{opacity:.55}100%{opacity:0;transform:translateY(-4px)}}
+@keyframes tech-twinkle{0%{opacity:0}30%{opacity:1}55%{opacity:.3}75%{opacity:.8}100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.tech,.tech img,.tech>span{transition:none}.tech:hover::before,.tech:hover::after{animation:none}}
 
 /* Timeline dates share a right edge regardless of title length */
 .timeline-head{display:grid;grid-template-columns:minmax(0,1fr) 126px;align-items:start}
