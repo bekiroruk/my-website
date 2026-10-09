@@ -66,3 +66,36 @@
 
 @media(max-width:700px){.profile{grid-template-columns:92px minmax(0,1fr)}.lang-switch{top:.65rem}.quick-links{grid-column:2;padding-top:0}}
 @media(max-width:560px){.profile{grid-template-columns:76px minmax(0,1fr);padding-top:2.9rem}.quick-links{grid-column:1/-1}.timeline-head{grid-template-columns:minmax(0,1fr) 118px;gap:.5rem}.timeline time{display:block;margin:0;font-size:.75rem;white-space:normal}footer{flex-wrap:wrap}}
+
+/* Project portfolio: featured ongoing work and compact completed cards. */
+.project-group-title{display:flex;align-items:center;justify-content:center;gap:.65rem;font-size:1.08rem;line-height:1.4;margin:1.8rem 0 1.4rem;text-align:center}
+.project-group-title::before,.project-group-title::after{content:"";height:1px;background:var(--line);flex:1}
+.group-dot{width:8px;height:8px;border-radius:50%;background:#dfb948;flex:none}
+.group-check{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#50bd88;color:#151917;font-size:.8rem;flex:none}
+.active-project-list{display:grid;gap:1.2rem}
+.active-project{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.55fr);gap:1.35rem;padding:1.25rem;border:1px solid #36363d;border-radius:14px;background:#232429}
+.active-project-image{position:relative;margin:0;min-height:220px;border-radius:9px;overflow:hidden;background:#1a1b20}
+.active-project-image img{display:block;width:100%;height:100%;position:absolute;inset:0;object-fit:cover}
+.project-image-tag{position:absolute;left:.65rem;top:.65rem;right:.65rem;width:fit-content;max-width:calc(100% - 1.3rem);padding:.3rem .5rem;background:#e0bd53;color:#25200d;border-radius:4px;font-size:.73rem;font-weight:650;line-height:1.4}
+.active-project-image figcaption{position:absolute;bottom:.4rem;left:.5rem;padding:.1rem .35rem;border-radius:3px;background:#111b;color:#eee;font-size:.65rem}
+.active-project-body{display:flex;flex-direction:column;min-width:0;padding:.1rem 0}
+.active-project h4{font-size:1.08rem;line-height:1.4;letter-spacing:-.015em;margin:0 0 .65rem}
+.active-project-link:hover{text-decoration:underline;text-underline-offset:4px}
+.project-stack{font-size:.78rem;color:#b4b8c2;margin:0 0 .9rem}
+.active-project-description{font-size:.88rem;line-height:1.6;color:var(--muted);margin:0 0 1.4rem}
+.project-activity{margin-top:auto}
+.project-activity>div{display:flex;justify-content:space-between;align-items:center;gap:.5rem;font-size:.75rem;color:var(--soft);margin-bottom:.5rem}
+.is-active{color:#dfb948}.activity-line{height:5px;display:block;border-radius:4px;background:repeating-linear-gradient(120deg,#e0bd5338 0 8px,#e0bd5360 8px 16px)}
+.completed-heading{margin-top:2.8rem}
+.finished-project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.finished-project{display:flex;flex-direction:column;padding:1.2rem;border:1px solid var(--line);border-radius:11px;background:#1b1c20;transition:border-color .2s,background .2s}
+.finished-project:hover{border-color:#576b61;background:#202321}
+.project-topline{display:flex;align-items:flex-start;justify-content:space-between;gap:.6rem;margin-bottom:1rem}
+.project-tag{font-size:.7rem;line-height:1.5;color:#babdc6;background:#292c33;border:1px solid #3a3e47;border-radius:4px;padding:.2rem .4rem}
+.project-status{font-size:.72rem;white-space:nowrap}.is-complete{color:#50bd88}
+.finished-project h4{font-size:1rem;line-height:1.45;margin:0 0 .75rem;letter-spacing:-.015em}
+.finished-project p{font-size:.86rem;line-height:1.6;color:var(--muted);margin:0 0 1.1rem}
+.project-repository{margin-top:auto;font-size:.76rem;color:#b7bfc0}
+.completion-line{display:block;height:4px;border-radius:4px;background:#50bd88;margin-top:1rem}
+@media(max-width:600px){.active-project{grid-template-columns:1fr;padding:1rem;gap:1.1rem}.active-project-image{height:180px;min-height:0}.active-project h4{font-size:1.05rem}.finished-project-grid{grid-template-columns:1fr}.project-group-title{font-size:1rem}.project-tag{font-size:.75rem}.project-status{font-size:.75rem}}
+@media(prefers-reduced-motion:reduce){.finished-project{transition:none}}
